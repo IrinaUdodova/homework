@@ -6,18 +6,19 @@ import App from './App';
 import Cell from './Cell';
 import Filling from './Filling';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-const cell = ReactDOM.createRoot(document.getElementById('cell'));
-cell.render(
-    <React.StrictMode>
-        <Cell />
-    </React.StrictMode>
-);
+// const cell = ReactDOM.createRoot(document.getElementById('cell'));
+// cell.render(
+//     <React.StrictMode>
+//         <Cell />
+//     </React.StrictMode>
+// );
 
 const filling = ReactDOM.createRoot(document.getElementById('filling'));
 filling.render(
