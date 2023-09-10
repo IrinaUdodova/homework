@@ -1,27 +1,30 @@
 <!doctype html>
+<?php global $data; ?>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel='stylesheet' href='css/style.css'>
-</head>
+<?php require 'indexParts/index.globals.php' ?>
+<?php require 'indexParts/Header.html' ?>
 <body>
 <?php
-if (key_exists("name", $_GET)){
-    $name = $_GET["name"];
-    $password =$_GET["password"];
-    echo "Hello $name, your password is $password";
-}
-?>
+if (!$data -> IsAuthorized){
+    require  'indexParts/key.php';
+}?>
 <br>
 <span  class ="col"> <?php
 echo "hello, world";
     ?> </span>
 <br/>
-<form action = "index.php" method ="get">
-    <input type ="text" name ="name">
-    <input type ="text" name ="password">
-    <input type ="submit" value="Submit">
-</form>
+
+<?php
+if ($data -> IsFormDataExist){
+    if ($data -> IsAuthorized){
+        require 'indexParts/LoggedIn.php';
+        require 'indexParts/menu.php';
+    } else {
+        require 'indexParts/LoginFail.php';
+    }
+} else {
+    require 'indexParts/form.html';
+}
+?>
 </body>
 </html>
