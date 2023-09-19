@@ -58,8 +58,15 @@ class Card
         73 => "Images/Kards/king_of_spades.svg.png",
         74 => "Images/Kards/ace_of_spades.svg.png",
     );
-    public function GetCardImage($cardIndex){
-        if (!key_exists($cardIndex, self::ImagePaths)){
+
+    public function IsCardWithIndexExist($cardIndex):bool{
+        return key_exists($cardIndex, self::ImagePaths);
+    }
+
+    public function GetCardImage($cardIndex):string{
+
+
+        if (!($this -> IsCardWithIndexExist($cardIndex))){
             return "";
         }
 
